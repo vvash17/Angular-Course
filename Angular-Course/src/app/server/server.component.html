@@ -1,2 +1,5 @@
-<h1>Server with ID {{serverId}} is {{sertverStatus}}</h1>
+<h1 [ngStyle]="{backgroundColor : getColor()}"
+    [ngClass]="{online:sertverStatus === 'online'}">
+  Server with ID {{serverId}} is {{sertverStatus}}
+</h1>
 

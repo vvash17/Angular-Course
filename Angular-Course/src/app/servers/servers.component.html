@@ -3,5 +3,12 @@
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <p [innerText]="allowNewServer"></p>
 <p [innerText]="serverCreationStatus"></p>
-<app-server></app-server>
+<p *ngIf="serverCreated; else noserver">server was created server name is {{serverName}}</p>
+<ng-template #noserver>
+  <p>no server was created!</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
+<button class="btn btn-primary" (click)="changeDisplayStatus()">Display Details</button>
+<p *ngIf="displayStatus">hello there</p>
+<p *ngFor="let date of log; index as i;" [ngClass]="{logStyle : i > 5}">{{date}}</p>
 
